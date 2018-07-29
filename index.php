@@ -88,7 +88,7 @@ $uitzendinggemist = $ug_fourth_step[1];
 					var axel = Math.random() + "";
 					var num = axel * 1000000000000000000
 					var client = new XMLHttpRequest();
-					client.open('GET', '/index/php/nowplaying/index.php');
+					client.open('GET', './index/php/nowplaying/index.php');
 					client.onreadystatechange = function() {
   						document.getElementById("music_now").innerHTML = client.responseText;
 					}
@@ -100,7 +100,7 @@ $uitzendinggemist = $ug_fourth_step[1];
 					var axel = Math.random() + "";
 					var num = axel * 1000000000000000000
 					var client = new XMLHttpRequest();
-					client.open('GET', '/index/php/uitzending-gemist/index.php');
+					client.open('GET', './index/php/uitzending-gemist/index.php');
 					client.onreadystatechange = function() {
   						document.getElementById("uitzending_gemist").innerHTML = client.responseText;
 					}
