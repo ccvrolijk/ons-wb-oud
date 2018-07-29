@@ -1,4 +1,4 @@
-<?php
+<?php /*Niet meer gebruikt tot dat er weer content op de uitzending gemist pagina komt te staan
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
@@ -9,7 +9,7 @@ $ug_first_step = explode( '<div class="entry-content">' , $ug_content );
 $ug_second_step = explode( '</div><!-- .entry-content -->' , $ug_first_step[1] );
 $ug_third_step = explode( 'toggleDuration: true,' , $ug_second_step[0] );
 $ug_fourth_step = explode( '</script>' , $ug_third_step[1] );
-$uitzendinggemist = $ug_fourth_step[1];
+$uitzendinggemist = $ug_fourth_step[1];*/
 ?>
 <!doctype html>
 	<html>
@@ -72,7 +72,7 @@ $uitzendinggemist = $ug_fourth_step[1];
   
 			}
 
-			function changeContent(source/*, innerhtmlSrc, innerhtmlImg, logoWidth, logoHeight*/) {
+			function changeContent(source) {
 			var myPlayer = document.getElementById('player');
 			var myTitle = document.getElementById('title');
 			var playpause = document.getElementById('playpause');
@@ -94,7 +94,7 @@ $uitzendinggemist = $ug_fourth_step[1];
 					}
 					client.send();
 				}
-				
+			/*	
 			function load_uitzending_gemist()
 				{
 					var axel = Math.random() + "";
@@ -105,7 +105,7 @@ $uitzendinggemist = $ug_fourth_step[1];
   						document.getElementById("uitzending_gemist").innerHTML = client.responseText;
 					}
 					client.send();
-				}
+				}*/
 				
 			function load_nieuws(soortNieuws)
 				{
@@ -121,7 +121,7 @@ $uitzendinggemist = $ug_fourth_step[1];
 									
 			setInterval(function(){
 			if (document.visibilityState == "visible") {
-					load_nieuws('/index/php/nieuws/laatste-nieuws/index.php');
+					load_nieuws('./index/php/nieuws/laatste-nieuws/index.php');
 					}
 					},60000);
 			
@@ -134,7 +134,7 @@ $uitzendinggemist = $ug_fourth_step[1];
 			window.addEventListener("load", myInit, true);
 			function myInit(){
 				load_nieuws('/index/php/nieuws/laatste-nieuws/index.php')
-				load_uitzending_gemist();
+				//load_uitzending_gemist();
 				load_nowplaying();
 				controlPlayer('player','playpause','loadTimeOut');
 				volumeSlider('player','volume');
@@ -279,11 +279,11 @@ $uitzendinggemist = $ug_fourth_step[1];
 					<a class="twitter-timeline alink" data-lang="nl" data-width="380" data-height="500" href="https://twitter.com/OnsWestBrabant?ref_src=twsrc%5Etfw"></a>
 					<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 				</div>
-				
+				<!-- Niet meer gebruikt tot dat er weer content op de uitzending gemist pagina komt te staan
 				<p id="titleug">Ons West Brabant - Uitzending Gemist</p>
 				<div id="uitzending_gemist">
-					<?php //echo $uitzendinggemist; ?>
-				</div>
+					<?php // echo $uitzendinggemist; ?>
+				</div>-->
 
 		 	</div>
 
