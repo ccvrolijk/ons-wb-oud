@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" version="1">
+  <title/>
+  <creator/>
+  <trackList>
+    <track>
+      <location>http://media1.onswestbrabant.nl:8000/OWBLiveMP3</location>
+      <title>Ons WestBrabant Livestream</title>
+      <annotation>Stream Title: Ons WestBrabant Livestream
+Stream Description: OWB-ENC-01
+Content Type:audio/mpeg
+Stream Genre: Ons WestBrabant Livestream</annotation>
+      <info>http://media1.onswestbrabant.nl:8000/OWBLiveMP3</info>
+    </track>
+  </trackList>
+</playlist>

@@ -1,7 +1,15 @@
-<?php
+<?php /*Niet meer gebruikt tot dat er weer content op de uitzending gemist pagina komt te staan
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
+
+$ug_url = 'https://onswestbrabant.nl/uitzending-gemist/';
+$ug_content = file_get_contents($ug_url);
+$ug_first_step = explode( '<div class="entry-content">' , $ug_content );
+$ug_second_step = explode( '</div><!-- .entry-content -->' , $ug_first_step[1] );
+$ug_third_step = explode( 'toggleDuration: true,' , $ug_second_step[0] );
+$ug_fourth_step = explode( '</script>' , $ug_third_step[1] );
+$uitzendinggemist = $ug_fourth_step[1];*/
 ?>
 <!doctype html>
 	<html>
@@ -64,7 +72,7 @@ header("Pragma: no-cache");
   
 			}
 
-			function changeContent(source/*, innerhtmlSrc, innerhtmlImg, logoWidth, logoHeight*/) {
+			function changeContent(source) {
 			var myPlayer = document.getElementById('player');
 			var myTitle = document.getElementById('title');
 			var playpause = document.getElementById('playpause');
@@ -80,24 +88,24 @@ header("Pragma: no-cache");
 					var axel = Math.random() + "";
 					var num = axel * 1000000000000000000
 					var client = new XMLHttpRequest();
-					client.open('GET', '/index/php/nowplaying/index.php');
+					client.open('GET', './index/php/nowplaying/index2.php');
 					client.onreadystatechange = function() {
   						document.getElementById("music_now").innerHTML = client.responseText;
 					}
 					client.send();
 				}
-				
+			/*	
 			function load_uitzending_gemist()
 				{
 					var axel = Math.random() + "";
 					var num = axel * 1000000000000000000
 					var client = new XMLHttpRequest();
-					client.open('GET', '/index/php/uitzending-gemist/index.php');
+					client.open('GET', './index/php/uitzending-gemist/index.php');
 					client.onreadystatechange = function() {
   						document.getElementById("uitzending_gemist").innerHTML = client.responseText;
 					}
 					client.send();
-				}
+				}*/
 				
 			function load_nieuws(soortNieuws)
 				{
@@ -113,7 +121,7 @@ header("Pragma: no-cache");
 									
 			setInterval(function(){
 			if (document.visibilityState == "visible") {
-					load_nieuws('/index/php/nieuws/laatste-nieuws/index.php');
+					load_nieuws('./index/php/nieuws/laatste-nieuws/index.php');
 					}
 					},60000);
 			
@@ -126,7 +134,7 @@ header("Pragma: no-cache");
 			window.addEventListener("load", myInit, true);
 			function myInit(){
 				load_nieuws('/index/php/nieuws/laatste-nieuws/index.php')
-				load_uitzending_gemist();
+				//load_uitzending_gemist();
 				load_nowplaying();
 				controlPlayer('player','playpause','loadTimeOut');
 				volumeSlider('player','volume');
@@ -146,12 +154,14 @@ header("Pragma: no-cache");
 					 #uitzending_gemist, #titleug, #nieuws, #nwsA, #nwsEL, #nwsH, #nwsM #nwsZ, #nws112, #nwsS, #middleRHeader {position:absolute; }
 				/* Global Styles END */
 				/* Styles for the containers */
-				#header { left:0; top:0; background-color:#0e71b8; height:30px; width:100%; }
-				.middle { height:3000px; }
-				#middleL { top:30px; left:0; border-right:1px solid #076633; width:400px; }
-				#middleR { top:50px; left:401px; width:400px; z-index:-1;}
-				.frame { top:30px; left:801px; height:3000px; min-height:2450px; min-width:800px; overflow:hidden; border-left:1px solid #076633;} /* width:calc(100% - 802px) */
-				#bottom { top:3030px; background-color:#185c36; width:100%; height:30px; }
+				#header { left:0; top:0; background-color:#0e71b8; height:30px; width:1202px; }
+				//.middle { height:3000px;}
+				#middleL { top:30px; left:0; border-right:1px solid #076633; width:600px; height:1520px; border-bottom:1px solid black;}
+				#middleR { top:50px; left:601px; width:600px; height:1500px; z-index:-1; border-bottom:1px solid black; border-right:1px solid black; }
+				#middleRHeader { left:601px; top:30px; width:600px; height:20px; border-right:1px solid black; }
+				// tijdelijk uitgezet .frame { top:30px; left:801px; width:calc(100%4 - 802px); height:3000px; min-height:2450px; overflow:hidden; border-left:1px solid #076633;}
+				.frame { display:none; }
+				#bottom { top:1550px; background-color:#185c36; width:1202px; height:30px; }
 				/* Styles for the containers END */
 				#sitelogo { left:100px; top:5px; width:212px; height:52px; padding:0; }
 				#container {left:10px; top:65px; height:55px; width:175px; padding:5px; border:1px solid #076633; }
@@ -161,22 +171,22 @@ header("Pragma: no-cache");
 				#volume-img {top:5px; right:5px; }
 				#tracktime { left:5px; top:26px; height:20px; }
 				.totaltime { right:10px; top:26px; height:20px; }
-				#nowonradio { top:65px; left:220px; width:165px; height:195px; border:1px solid #076633; }
+				#nowonradio { top:65px; left:220px; width:375px; height:100px; border:1px solid #076633; }
 				#title { text-decoration:underline; margin: 3px;}
 				.nowplaying, .nowplaying img { width:16px; height:16px; padding:0; margin:0; }
 				#music_now {font-weight:bold; margin:3px; }
 				#logo, #logo-a { left:10px; top:140px; width:200px; height:80px; padding:0; }
 				.image { width:15px; height:15px; padding:3px; }
 				.icecast { width:10px; height:10px; padding:0; margin:0; }
-				#playlist { left:15px; top:220px; width:210px; }
+				#playlist { left:220px; top:160px; width:210px; }
 				#playlist-ul { padding-left:0; }
 				li { list-style-type: none; }
-				#titleyt { top:260px; left:15px; border:0; text-decoration:underline; }
+				#titleyt { top:210px; left:15px; border:0; text-decoration:underline; }
 				#titleyt a { color:black; }
-				#youtube { top:295px; left:15px; padding:0; margin:0; width:380px; height:214px; }
-				#twitter { top:510px; left:15px; height:500px; width:380px; }
-				#uitzending_gemist { top:1020px; left:15px; height:500px; width:380px; overflow-y:scroll; }
-				#titleug { top:985px; left:15px; border:0; text-decoration:underline; }
+				#youtube { top:255px; left:15px; padding:0; margin:0; width:580px; height:327px; }
+				#twitter { top:583px; left:15px; height:940px; width:580px; }
+				/* Heeft geen content op onswestbrabant.nl #uitzending_gemist { top:1123px; left:15px; height:750px; width:580px; } */ #uitzending_gemist { display:none; }
+				#titleug { top:1108px; left:15px; border:0; text-decoration:underline; }
 				.alink {text-decoration:none; color:#0e71b8; }
 				//#rightad { top:5px; left:415px; min-height:100px; height:auto; width:auto; }
          		iframe { display:block; width:100%; height:100%; border:0; }
@@ -197,12 +207,12 @@ header("Pragma: no-cache");
 				a.mp3Trigger { display:inline; }
 				h2 { margin:6px; font-size:16px; }
 				/* Styles voor Uitzending Gemist END */
-				#middleRHeader { left:401px; top:30px; width:400px; height:20px; }
+				/* Onderstaande code zorgt voor het menu in #middleRHeader */
 				nav { background-color:orange; }
 				nav ul { padding: 0; margin: 0; list-style: none; position: relative; }
-				nav ul li { display:inline-block; background-color: orange; }
+				nav ul li { display:inline-block; background-color: orange;}
 				nav a { display:block; padding:2px; color:#ffffff; text-decoration:none; vertical-align:middle; }
-				nav a:hover { background-color:#0e71b8; }
+				nav a:hover { background-color: blue; }
 			/* Hide Dropdowns by Default */
 				nav ul ul { display: none; position: absolute; top: 20px; /* the height of the main nav */ }
 			/* Display Dropdowns on Hover */
@@ -217,20 +227,14 @@ header("Pragma: no-cache");
 			</style>
 		
 		 	<div id="header">
-				<?php
-					if ($_SERVER['SERVER_NAME'] == "ons-wb.duckdns.org" ) {
-						$duckHost = '<span>Deze website wordt mede mogelijk gemaakt door <a href="https://duckdns.org">DuckDNS</a></span>';
-						echo $duckHost;
-					}
-				?>
+				<audio id="player" src="/media2/index.php" metadata type="audio/mpeg"></audio>
+				<!--<video id="player" src="/media2/index.php" metadata></video> use video tag when using video sources... else use audio -->
 		 	</div>
 		 	
 		 	<div id="middleL" class="middle">
 		 		<img id="sitelogo" src="./index/images/logos/ons-wb-212x52.png">
 		 		
 				<div id="container" class="player">
-				<audio id="player" src="/media2/index.php" metadata type="audio/mpeg"></audio>
-				<!--<video id="player" src="/media2/index.php" metadata></video> use video tag when using video sources... else use audio -->
 		 			<span id="playpause"><img class="image" src="./index/images/player/play1.png"></span>
 					<img id="mute-img" class="image" src="./index/images/player/volume_mute1.png">
 					<input id="volume" type="range" min="0" max="100" step="1" value="100">
@@ -274,14 +278,14 @@ header("Pragma: no-cache");
 		 		</div>
 		 		
 		 		<div id="twitter">
-					<a class="twitter-timeline alink" data-lang="nl" data-width="380" data-height="500" href="https://twitter.com/OnsWestBrabant?ref_src=twsrc%5Etfw"></a>
+					<a class="twitter-timeline alink" data-lang="nl" data-width="580" data-height="940" href="https://twitter.com/OnsWestBrabant?ref_src=twsrc%5Etfw"></a>
 					<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 				</div>
-				
+				<!-- Niet meer gebruikt tot dat er weer content op de uitzending gemist pagina komt te staan
 				<p id="titleug">Ons West Brabant - Uitzending Gemist</p>
 				<div id="uitzending_gemist">
-
-				</div>
+					<?php // echo $uitzendinggemist; ?>
+				</div>-->
 
 		 	</div>
 
