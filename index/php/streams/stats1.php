@@ -13,12 +13,14 @@ $uitzendinggemist = $ug_first_step[1];
 	<head>
 		<title>Icecast Mount Stats</title>
 		<style>
+			@font-face { font-family: 'Roboto'; src: url('./index/fonts/roboto.woff2') format('woff'); }
+			body { overflow:scroll; font-family: Roboto, sans-serif; font-size:14px; }
 			#footer { display:none; }
 			#playlists { width:600px; left:0px; top:270px; position:absolute; }
 		</style>
 	</head>
 	<body>
-		<h1>Ons West Brabant Radio stream stats</h1>
+		<h3>Stream 1</h3>
 		<div id="playlists">
 			<?php echo $uitzendinggemist; ?>
 	 	</div>

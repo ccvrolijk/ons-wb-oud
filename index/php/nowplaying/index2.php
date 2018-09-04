@@ -7,7 +7,7 @@ if($data->load("http://media2.onswestbrabant.nl:8000/OWBLiveMP3.xspf")) {
 
 		$seperated = explode(' - ', $title);
 
-       echo '<a class="alink" target="_new" class="nowplaying" href="https://www.google.nl/search?hl=NL_nl'.urlencode($title).'">Titel: '.$seperated[0].'<br>Artiest: '.$seperated[1].'</a>';
+       echo '<a class="alink" target="_new" class="nowplaying" href="https://duckduckgo.com/?q='.urlencode($title).'">Titel: '.$seperated[0].'<br>Artiest: '.$seperated[1].'</a>';
     } 
   }
   ?>

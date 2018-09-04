@@ -148,7 +148,8 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 		 	<style>
 				/* Global Styles */
 		 		@font-face { font-family: 'Roboto'; src: url('./index/fonts/roboto.woff2') format('woff'); }
-				body { overflow:scroll; font-family: Roboto, sans-serif; padding:0; margin:0; font-size:14px; height:2450px; }
+		 		html { width:100%; }
+				body { overflow:scroll; font-family: Roboto, sans-serif; padding:0; margin:0; font-size:14px; height:auto; width:1802px;}
 				#progress, #logo, #container, #playlist, #playlist-ul, #rightad, #playpause, #mute-img, #volume-img, #tracktime, #volume,
 					.totaltime, #player, #seekbar, #titleyt, #youtube, #twitter, #sitelogo, #header, .middle, #bottom, .frame, #nowonradio,
 					 #uitzending_gemist, #titleug, #nieuws, #nwsA, #nwsEL, #nwsH, #nwsM #nwsZ, #nws112, #nwsS, #middleRHeader {position:absolute; }
@@ -159,8 +160,9 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 				#middleL { top:30px; left:0; border-right:1px solid #076633; width:600px; height:1520px; border-bottom:1px solid black;}
 				#middleR { top:50px; left:601px; width:600px; height:1500px; z-index:-1; border-bottom:1px solid black; border-right:1px solid black; }
 				#middleRHeader { left:601px; top:30px; width:600px; height:20px; border-right:1px solid black; }
-				// tijdelijk uitgezet .frame { top:30px; left:801px; width:calc(100%4 - 802px); height:3000px; min-height:2450px; overflow:hidden; border-left:1px solid #076633;}
-				.frame { display:none; }
+				.frame { top:30px; left:1202px; width:600px; height:1500px; overflow:hidden; } 
+					//width:calc(100%4 - 802px)
+				//.frame { display:none; }
 				#bottom { top:1550px; background-color:#185c36; width:1202px; height:30px; }
 				/* Styles for the containers END */
 				#sitelogo { left:100px; top:5px; width:212px; height:52px; padding:0; }
@@ -258,13 +260,13 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 				<div id="playlist">
 		 		<ul id="playlist-ul">
 		 			<li>
-		 				<a class="alink" href="/media1/status/index.php" onClick = "document.getElementById('external').src = '/media1/status/index.php?' + Date.now(); return false" target="external">
+		 				<a class="alink" href="/index/php/streams/stats1.php"  onClick = "document.getElementById('external').src = '/index/php/streams/stats1.php'; return false" target="external">
 		 					<img class="icecast" src="/index/images/logos/icecast.png">
 		 				</a>
 		 				<a class="alink" id="lia1">Ons West Brabant - Stream 1</a>
 		 			</li>
 		 			<li>
-		 				<a class="alink" href="/media2/status/index.php" onClick = "document.getElementById('external').src = '/media2/status/index.php?' + Date.now(); return false" target="external">
+		 				<a class="alink" href="/index/php/streams/stats2.php" onClick = "document.getElementById('external').src = '/index/php/streams/stats2.php'; return false" target="external">
 		 					<img class="icecast" src="/index/images/logos/icecast.png">
 		 				</a>
 		 				<a class="alink" id="lia2">Ons West Brabant - Stream 2</a>
