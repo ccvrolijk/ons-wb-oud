@@ -148,18 +148,22 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 		 	<style>
 				/* Global Styles */
 		 		@font-face { font-family: 'Roboto'; src: url('./index/fonts/roboto.woff2') format('woff'); }
-				body { overflow:scroll; font-family: Roboto, sans-serif; padding:0; margin:0; font-size:14px; height:2450px; }
+		 		html { width:100%; }
+				body { overflow:scroll; font-family: Roboto, sans-serif; padding:0; margin:0; font-size:14px; height:auto; width:1802px;}
 				#progress, #logo, #container, #playlist, #playlist-ul, #rightad, #playpause, #mute-img, #volume-img, #tracktime, #volume,
 					.totaltime, #player, #seekbar, #titleyt, #youtube, #twitter, #sitelogo, #header, .middle, #bottom, .frame, #nowonradio,
 					 #uitzending_gemist, #titleug, #nieuws, #nwsA, #nwsEL, #nwsH, #nwsM #nwsZ, #nws112, #nwsS, #middleRHeader {position:absolute; }
 				/* Global Styles END */
 				/* Styles for the containers */
-				#header { left:0; top:0; background-color:#0e71b8; height:30px; width:100%; }
-				.middle { height:3000px; }
-				#middleL { top:30px; left:0; border-right:1px solid #076633; width:400px; }
-				#middleR { top:50px; left:401px; width:400px; z-index:-1;}
-				.frame { top:30px; left:801px; width:calc(100% - 802px); height:3000px; min-height:2450px; overflow:hidden; border-left:1px solid #076633;}
-				#bottom { top:3030px; background-color:#185c36; width:100%; height:30px; }
+				#header { left:0; top:0; background-color:#0e71b8; height:30px; width:1202px; }
+				//.middle { height:3000px;}
+				#middleL { top:30px; left:0; border-right:1px solid #076633; width:600px; height:1520px; border-bottom:1px solid black;}
+				#middleR { top:50px; left:601px; width:600px; height:1500px; z-index:-1; border-bottom:1px solid black; border-right:1px solid black; }
+				#middleRHeader { left:601px; top:30px; width:600px; height:20px; border-right:1px solid black; }
+				.frame { top:30px; left:1202px; width:600px; height:1500px; overflow:hidden; } 
+					//width:calc(100%4 - 802px)
+				//.frame { display:none; }
+				#bottom { top:1550px; background-color:#185c36; width:1202px; height:30px; }
 				/* Styles for the containers END */
 				#sitelogo { left:100px; top:5px; width:212px; height:52px; padding:0; }
 				#container {left:10px; top:65px; height:55px; width:175px; padding:5px; border:1px solid #076633; }
@@ -169,22 +173,22 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 				#volume-img {top:5px; right:5px; }
 				#tracktime { left:5px; top:26px; height:20px; }
 				.totaltime { right:10px; top:26px; height:20px; }
-				#nowonradio { top:65px; left:220px; width:165px; height:195px; border:1px solid #076633; }
+				#nowonradio { top:65px; left:220px; width:375px; height:100px; border:1px solid #076633; }
 				#title { text-decoration:underline; margin: 3px;}
 				.nowplaying, .nowplaying img { width:16px; height:16px; padding:0; margin:0; }
 				#music_now {font-weight:bold; margin:3px; }
 				#logo, #logo-a { left:10px; top:140px; width:200px; height:80px; padding:0; }
 				.image { width:15px; height:15px; padding:3px; }
 				.icecast { width:10px; height:10px; padding:0; margin:0; }
-				#playlist { left:15px; top:220px; width:210px; }
+				#playlist { left:220px; top:160px; width:210px; }
 				#playlist-ul { padding-left:0; }
 				li { list-style-type: none; }
-				#titleyt { top:260px; left:15px; border:0; text-decoration:underline; }
+				#titleyt { top:210px; left:15px; border:0; text-decoration:underline; }
 				#titleyt a { color:black; }
-				#youtube { top:295px; left:15px; padding:0; margin:0; width:380px; height:214px; }
-				#twitter { top:510px; left:15px; height:500px; width:380px; }
-				#uitzending_gemist { top:1020px; left:15px; height:750px; width:380px; }
-				#titleug { top:985px; left:15px; border:0; text-decoration:underline; }
+				#youtube { top:255px; left:15px; padding:0; margin:0; width:580px; height:327px; }
+				#twitter { top:583px; left:15px; height:940px; width:580px; }
+				/* Heeft geen content op onswestbrabant.nl #uitzending_gemist { top:1123px; left:15px; height:750px; width:580px; } */ #uitzending_gemist { display:none; }
+				#titleug { top:1108px; left:15px; border:0; text-decoration:underline; }
 				.alink {text-decoration:none; color:#0e71b8; }
 				//#rightad { top:5px; left:415px; min-height:100px; height:auto; width:auto; }
          		iframe { display:block; width:100%; height:100%; border:0; }
@@ -205,7 +209,7 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 				a.mp3Trigger { display:inline; }
 				h2 { margin:6px; font-size:16px; }
 				/* Styles voor Uitzending Gemist END */
-				#middleRHeader { left:401px; top:30px; width:400px; height:20px; }
+				/* Onderstaande code zorgt voor het menu in #middleRHeader */
 				nav { background-color:orange; }
 				nav ul { padding: 0; margin: 0; list-style: none; position: relative; }
 				nav ul li { display:inline-block; background-color: orange;}
@@ -256,13 +260,13 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 				<div id="playlist">
 		 		<ul id="playlist-ul">
 		 			<li>
-		 				<a class="alink" href="/media1/status/index.php" onClick = "document.getElementById('external').src = '/media1/status/index.php?' + Date.now(); return false" target="external">
+		 				<a class="alink" href="/index/php/streams/stats1.php"  onClick = "document.getElementById('external').src = '/index/php/streams/stats1.php'; return false" target="external">
 		 					<img class="icecast" src="/index/images/logos/icecast.png">
 		 				</a>
 		 				<a class="alink" id="lia1">Ons West Brabant - Stream 1</a>
 		 			</li>
 		 			<li>
-		 				<a class="alink" href="/media2/status/index.php" onClick = "document.getElementById('external').src = '/media2/status/index.php?' + Date.now(); return false" target="external">
+		 				<a class="alink" href="/index/php/streams/stats2.php" onClick = "document.getElementById('external').src = '/index/php/streams/stats2.php'; return false" target="external">
 		 					<img class="icecast" src="/index/images/logos/icecast.png">
 		 				</a>
 		 				<a class="alink" id="lia2">Ons West Brabant - Stream 2</a>
@@ -276,7 +280,7 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 		 		</div>
 		 		
 		 		<div id="twitter">
-					<a class="twitter-timeline alink" data-lang="nl" data-width="380" data-height="500" href="https://twitter.com/OnsWestBrabant?ref_src=twsrc%5Etfw"></a>
+					<a class="twitter-timeline alink" data-lang="nl" data-width="580" data-height="940" href="https://twitter.com/OnsWestBrabant?ref_src=twsrc%5Etfw"></a>
 					<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 				</div>
 				<!-- Niet meer gebruikt tot dat er weer content op de uitzending gemist pagina komt te staan
