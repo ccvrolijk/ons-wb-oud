@@ -260,13 +260,13 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 				<div id="playlist">
 		 		<ul id="playlist-ul">
 		 			<li>
-		 				<a class="alink" href="/index/php/streams/stats1.php"  onClick = "document.getElementById('external').src = '/index/php/streams/stats1.php'; return false" target="external">
+		 				<a class="alink" href="/index/php/streams/stats1.php"  onClick = "document.getElementById('external').src = '/index/php/streams/stats1.php?' + Date.now()'; return false" target="external">
 		 					<img class="icecast" src="/index/images/logos/icecast.png">
 		 				</a>
 		 				<a class="alink" id="lia1">Ons West Brabant - Stream 1</a>
 		 			</li>
 		 			<li>
-		 				<a class="alink" href="/index/php/streams/stats2.php" onClick = "document.getElementById('external').src = '/index/php/streams/stats2.php'; return false" target="external">
+		 				<a class="alink" href="/index/php/streams/stats2.php" onClick = "document.getElementById('external').src = '/index/php/streams/stats2.php?' + Date.now()'; return false" target="external">
 		 					<img class="icecast" src="/index/images/logos/icecast.png">
 		 				</a>
 		 				<a class="alink" id="lia2">Ons West Brabant - Stream 2</a>

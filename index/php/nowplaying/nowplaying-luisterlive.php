@@ -13,7 +13,7 @@ if($data->load("http://media1.onswestbrabant.nl:8000/OWBLiveMP3.xspf")) {
        <a target="_new" class="nowplaying" href="https://duckduckgo.com/?hl=NL_nl&iax=videos&ia=videos&q='.urlencode($title).'"><img title="Zoek op DuckDuckGo" src="/index/images/nowplaying/duckduckgo.ico"></a>
        <a target="_new" class="nowplaying" href="https://www.bing.com/search?setlang=nl-nl&q='.urlencode($title).'"><img title="Zoek op Bing" src="/index/images/nowplaying/bing.ico"></a>
        <br>
-       <a target="_new" class="nowplaying" href="https://duckduckgo.com/?q='.urlencode($title).'">Artiest: '.$seperated[0].'<br>Titel: '.$seperated[1].'</a>';
+       <a target="_new" class="nowplaying" href="https://duckduckgo.com/?q='.urlencode($title).'">Titel: '.$seperated[0].'<br>Artiest: '.$seperated[1].'</a>';
         //print($track); 
     } 
   }

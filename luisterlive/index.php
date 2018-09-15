@@ -165,10 +165,10 @@
 				<div id="playlist">
 		 		<ul id="playlist-ul">
 		 			<li>
-		 				<a href="http://media1.onswestbrabant.nl:8000/status.xsl" target="external"><img class="icecast" src="/index/images/logos/icecast.png"></a><a id="lia1">Ons West Brabant - Stream 1</a>
+		 				<a href="/index/php/streams/stats1.php" target="external"><img class="icecast" src="/index/images/logos/icecast.png"></a><a id="lia1">Ons West Brabant - Stream 1</a>
 		 			</li>
 		 			<li>
-		 				<a href="http://media2.onswestbrabant.nl:8000/status.xsl" target="external"><img class="icecast" src="/index/images/logos/icecast.png"></a><a id="lia2">Ons West Brabant - Stream 2</a>
+		 				<a href="/index/php/streams/stats2.php" target="external"><img class="icecast" src="/index/images/logos/icecast.png"></a><a id="lia2">Ons West Brabant - Stream 2</a>
 		 			</li>
 
 		 		</ul>
@@ -176,7 +176,7 @@
 		
 		 	</div>
 		 	
-			<video id="player" src="http://media2.onswestbrabant.nl:8000/OWBLiveMP3" metadata></video>
+			<video id="player" src="/media2/index.php" metadata></video>
 
 			<script>	 
 				var video = document.getElementById("player");
@@ -251,12 +251,12 @@
 			});
 			*/
 			document.getElementById("lia1").addEventListener("click", function() {
-				changeContent('http://media1.onswestbrabant.nl:8000/OWBLiveMP3','Ons West Brabant -  Stream 1','/index/images/logos/onswestbrabant_logo_trans.png','200px','80px');
+				changeContent('/media1/index.php','Ons West Brabant -  Stream 1','/index/images/logos/onswestbrabant_logo_trans.png','200px','80px');
 				document.getElementById('player').style.display='none';
 				})
 
 			document.getElementById("lia2").addEventListener("click", function() {
-				changeContent('http://media2.onswestbrabant.nl:8000/OWBLiveMP3','Ons West Brabant - Stream 2','/index/images/logos/onswestbrabant_logo_trans.png','200px','80px');
+				changeContent('/media2/index.php','Ons West Brabant - Stream 2','/index/images/logos/onswestbrabant_logo_trans.png','200px','80px');
 				document.getElementById('player').style.display='none';
 				})
 				

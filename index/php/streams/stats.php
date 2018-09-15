@@ -1,5 +1,5 @@
 <?php
-$data = new DOMDocument(); $data->load('http://media2.onswestbrabant.nl:8000/OWBLiveMP3.xspf'); 
+$data = new DOMDocument(); $data->load('http://media1.onswestbrabant.nl:8000/OWBLiveMP3.xspf'); 
 
 if($data->load("http://media2.onswestbrabant.nl:8000/OWBLiveMP3.xspf")) { 
     foreach ($data->getElementsByTagName('trackList') as $track) { 
@@ -15,6 +15,7 @@ $line4 = explode(':', $lines[4]);
 <doctype html>
 <html>
 	<body>
+		<h6>Stream 1</h6>
 		<table>
 			<tr>
 			<tr>
