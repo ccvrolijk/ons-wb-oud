@@ -14,6 +14,10 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 <!doctype html>
 	<html>
 		<head>
+			<link href="/index/javascript/video-js-7.2.3/video-js.css" rel="stylesheet">
+			<link href="/index/javascript/video-js-7.2.3/videojs-airplay.css" rel="stylesheet">
+			<link href="/index/javascript/video-js-7.2.3/videojs-chromecast.css" rel="stylesheet">
+			
 		 	<title>Ons - WB</title>
 		 	<link rel="apple-touch-icon" sizes="57x57" href="/index/images/favicon/apple-icon-57x57.png">
 		 	<link rel="apple-touch-icon" sizes="60x60" href="/index/images/favicon/apple-icon-60x60.png">
@@ -151,19 +155,19 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 		 		html { width:100%; }
 				body { overflow:scroll; font-family: Roboto, sans-serif; padding:0; margin:0; font-size:14px; height:auto; width:1802px;}
 				#progress, #logo, #container, #playlist, #playlist-ul, #rightad, #playpause, #mute-img, #volume-img, #tracktime, #volume,
-					.totaltime, #player, #seekbar, #titleyt, #youtube, #twitter, #sitelogo, #header, .middle, #bottom, .frame, #nowonradio,
-					 #uitzending_gemist, #titleug, #nieuws, #nwsA, #nwsEL, #nwsH, #nwsM #nwsZ, #nws112, #nwsS, #middleRHeader {position:absolute; }
+					.totaltime, #player, #tvplayer, #seekbar, #titleyt, #youtube, #twitter, #sitelogo, #header, .middle, #bottom, .frame, #nowonradio,
+					 #uitzending_gemist, #titleug, #nieuws, #nwsA, #nwsEL, #nwsH, #nwsM #nwsZ, #nws112, #nwsS, #middleRHeader, #tvdiv, #titletv, #titletw {position:absolute; }
 				/* Global Styles END */
 				/* Styles for the containers */
-				#header { left:0; top:0; background-color:#0e71b8; height:30px; width:1202px; }
+				#header { left:0; top:0; background-color:#0e71b8; height:29px; width:1802px; border-bottom:1px solid black; }
 				//.middle { height:3000px;}
-				#middleL { top:30px; left:0; border-right:1px solid #076633; width:600px; height:1520px; border-bottom:1px solid black;}
-				#middleR { top:50px; left:601px; width:600px; height:1500px; z-index:-1; border-bottom:1px solid black; border-right:1px solid black; }
+				#middleL { top:30px; left:0; border-right:1px solid #076633; width:600px; height:1580px; }
+				#middleR { top:50px; left:601px; width:600px; height:1560px; z-index:-1; border-right:1px solid black; }
 				#middleRHeader { left:601px; top:30px; width:600px; height:20px; border-right:1px solid black; }
-				.frame { top:30px; left:1202px; width:600px; height:1500px; overflow:hidden; } 
+				.frame { top:30px; left:1202px; width:600px; height:1580px; overflow:hidden; } 
 					//width:calc(100%4 - 802px)
 				//.frame { display:none; }
-				#bottom { top:1550px; background-color:#185c36; width:1202px; height:30px; }
+				#bottom { top:1610px; background-color:#185c36; width:1802px; height:29px; border-top:1px solid black; }
 				/* Styles for the containers END */
 				#sitelogo { left:100px; top:5px; width:212px; height:52px; padding:0; }
 				#container {left:10px; top:65px; height:55px; width:175px; padding:5px; border:1px solid #076633; }
@@ -180,19 +184,23 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 				#logo, #logo-a { left:10px; top:140px; width:200px; height:80px; padding:0; }
 				.image { width:15px; height:15px; padding:3px; }
 				.icecast { width:10px; height:10px; padding:0; margin:0; }
-				#playlist { left:220px; top:160px; width:210px; }
+				#playlist { left:240px; top:160px; width:210px; }
 				#playlist-ul { padding-left:0; }
 				li { list-style-type: none; }
-				#titleyt { top:210px; left:15px; border:0; text-decoration:underline; }
-				#titleyt a { color:black; }
-				#youtube { top:255px; left:15px; padding:0; margin:0; width:580px; height:327px; }
-				#twitter { top:583px; left:15px; height:940px; width:580px; }
+				#titletv { top:220px; left:15px; border:0; text-decoration:underline; }
+				#titleyt { top:593px; left:15px; border:0; text-decoration:underline; }
+				#titleyt a , #titletw a { color:black; }
+				#youtube { top:637px; left:15px; padding:0; margin:0; width:580px; height:327px; }
+				#twitter { display:block; top:995px; left:15px; height:580px; width:580px; }
+				#titletw { top:964px; left:15px; border:0; text-decoration:underline; }
 				/* Heeft geen content op onswestbrabant.nl #uitzending_gemist { top:1123px; left:15px; height:750px; width:580px; } */ #uitzending_gemist { display:none; }
 				#titleug { top:1108px; left:15px; border:0; text-decoration:underline; }
 				.alink {text-decoration:none; color:#0e71b8; }
 				//#rightad { top:5px; left:415px; min-height:100px; height:auto; width:auto; }
          		iframe { display:block; width:100%; height:100%; border:0; }
-         		#player { display:none; z-index:100; width:1024px; height:576px; left:300px; top:20px; border:20px solid #cbeda6; border-radius:5px; }
+         		#tvdiv { z-index:100; width:580px; height:327px; left:15px; top:265px; padding:0; }
+         		#tvplayer { width:580px; height:327px; }
+         		#player { display:none; }
 			 	//#seekbar::-webkit-slider-runnable-track { display:none !important; }
 				#progress { top:45px; left:5px; width:175px; }
 				/*#seekbar { top:62px; left:5px; width:175px; margin:0; padding:0; }*/
@@ -230,7 +238,7 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 		
 		 	<div id="header">
 				<audio id="player" src="/media2/index.php" metadata type="audio/mpeg"></audio>
-				<!--<video id="player" src="/media2/index.php" metadata></video> use video tag when using video sources... else use audio -->
+				
 		 	</div>
 		 	
 		 	<div id="middleL" class="middle">
@@ -274,13 +282,28 @@ $uitzendinggemist = $ug_fourth_step[1];*/
 		 		</ul>
 		 		</div>
 		 		
+		 		<p id="titletv">Ons West Brabant - Televisie Kanaal</p>
+		 		<div id="tvdiv">
+		 			<video id="tvplayer" class="video-js" preloaded="auto" controls data-setup="{}">
+						<source src="https://ms2.mx-cd.net/tv/177-710139/Ons_West_Brabant.smil/playlist.m3u8" type="application/x-mpegURL">
+					</video>
+					<script src="/index/javascript/video-js-7.2.3/video.js"></script>
+					<script src="/index/javascript/video-js-7.2.3/videojs-contrib-hls.js"></script>
+					<script src="/index/javascript/video-js-7.2.3/videojs-airplay.js"></script>
+					<script src="/index/javascript/video-js-7.2.3/videojs-chromecast.js"></script>
+					<script>
+						videojs('tvplayer', plugins: { airplayButton: {} });
+					</script>
+				</div>
+				
 		 		<p id="titleyt"><a class="alink" target="_new" href="https://www.youtube.com/channel/UCWhENtE0Z9LEXy-4oDfiBDQ/videos">Ons West Brabant - YouTube Kanaal</a></p>
 		 		<div id="youtube">
 		 			<iframe src="//www.youtube.com/embed/videoseries?list=UUWhENtE0Z9LEXy-4oDfiBDQ" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		 		</div>
 		 		
+		 		<p id="titletw"><a class="alink" target="_new" href="https://twitter.com/OnsWestBrabant">Ons West Brabant - Twitter Feed</a></p>
 		 		<div id="twitter">
-					<a class="twitter-timeline alink" data-lang="nl" data-width="580" data-height="940" href="https://twitter.com/OnsWestBrabant?ref_src=twsrc%5Etfw"></a>
+					<a class="twitter-timeline alink" data-lang="nl" data-width="580" data-height="580" href="https://twitter.com/OnsWestBrabant?ref_src=twsrc%5Etfw"></a>
 					<script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 				</div>
 				<!-- Niet meer gebruikt tot dat er weer content op de uitzending gemist pagina komt te staan
